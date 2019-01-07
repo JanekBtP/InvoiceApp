@@ -1,4 +1,43 @@
 var express = require('express');
+const { printQueryResults } = require('./utils');
+const sqlite3 = require('sqlite3');
+
+
+const db = new sqlite3.Database('./db.sqlite');
+
+var app = express();
+
+
+
+app.use(express.static('public'));
+
+app.get('/',function(req, res, next){
+    res.render('index');
+});
+
+
+app.listen(8000, function(){
+    console.log('App running on port 8000');
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //var cookieParser = require('cookie-parser');
 //var bodyParser = require('body-parser');
 //var ejs = require('ejs');
@@ -8,11 +47,9 @@ var express = require('express');
 //var MongoStore = require('connect-mongo')(session);
 
 
-var app = express();
-
 //mongoose.connect('mongodb://localhost/invoiceappdb');
 
-app.use(express.static('public'));
+
 //app.engine('ejs', engine);
 //app.set('view engine', 'ejs');
 //app.use(cookieParser());
@@ -29,11 +66,3 @@ app.use(express.static('public'));
    // })
 //}));
 
-app.get('/',function(req, res, next){
-    res.render('index');
-});
-
-
-app.listen(8000, function(){
-    console.log('App running on port 8000');
-});
