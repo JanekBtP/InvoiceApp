@@ -1,23 +1,16 @@
 {
   "name": "invoiceapp",
-  "version": "1.0.0",
-  "description": "Invoice app 1.0.0",
-  "main": "server.js",
-  "repository": "https://github.com/JanekBtP/InvoiceApp.git",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node ./bin/www"
   },
-  "author": "jn",
-  "license": "ISC",
   "dependencies": {
-    "cookie-parser": "latest",
-    "ejs": "latest",
-    "express-session": "latest",
-    "aws-sdk": "latest",
-    "express": "latest",
-    "body-parser": "latest",
-    "mysql": "latest"
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
   }
 }
-
