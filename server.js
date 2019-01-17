@@ -5,27 +5,25 @@ const mysql = require('mysql');
 
 
 //const db = new sqlite3.Database('./db.sqlite');
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "Tajnehaslo345",
-    database: "mydb"
-  });
-  
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-      var sql = "INSERT INTO USERS (first_name, last_name, email, password) VALUES ('Marie', 'Red','mr.test@example.com','secretpassword365')";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("1 record inserted, ID: " + result.insertId);
- 
-  con.query("SELECT * FROM USERS", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
-    });
-  });
-    });
+
+
+var connection = mysql.createConnection({
+  host     : process.env.RDS_HOSTNAME,
+  user     : process.env.RDS_USERNAME,
+  password : process.env.RDS_PASSWORD,
+  port     : process.env.RDS_PORT
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
+
+  console.log('Connected to database.');
+});
+
+
 
 var app = express();
 
